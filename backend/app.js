@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: process.env.FRONTEND_URL , // Allows requests from any origin
     methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: false, // Credentials are not supported
+    credentials: true, // Credentials are not supported
   })
 );
 
