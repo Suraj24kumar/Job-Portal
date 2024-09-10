@@ -21,6 +21,8 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+
+      console.log("user ka nam : ", name);
       const { data } = await axios.post(
         "http://localhost:4000/api/v1/user/register",
         { name, phone, email, role, password },
@@ -31,6 +33,9 @@ const Register = () => {
           withCredentials: true,
         }
       );
+
+      console.log("backend ka response : ", data);
+
       toast.success(data.message);
       setName("");
       setEmail("");

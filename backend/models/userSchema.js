@@ -2,6 +2,14 @@ import mongoose from "mongoose";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+
+import dotenv from 'dotenv';
+dotenv.config();  
+
+console.log("JWT Secret Key:", process.env.JWT_SECRET_KEY);
+console.log("JWT Expiry:", process.env.JWT_EXPIRES);
+
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,

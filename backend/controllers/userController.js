@@ -3,8 +3,15 @@ import { User } from "../models/userSchema.js";
 import ErrorHandler from "../middlewares/error.js";
 import { sendToken } from "../utils/jwtToken.js";
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+
 export const register = catchAsyncErrors(async (req, res, next) => {
   const { name, email, phone, password, role } = req.body;
+
+  console.log(req.body);
+
   if (!name || !email || !phone || !password || !role) {
     return next(new ErrorHandler("Please fill full form!"));
   }
@@ -24,6 +31,9 @@ export const register = catchAsyncErrors(async (req, res, next) => {
 
 export const login = catchAsyncErrors(async (req, res, next) => {
   const { email, password, role } = req.body;
+
+  console.log(req.body);
+  
   if (!email || !password || !role) {
     return next(new ErrorHandler("Please provide email ,password and role."));
   }
