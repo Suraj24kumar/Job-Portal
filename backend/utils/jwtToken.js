@@ -14,7 +14,7 @@ export const sendToken = (user, statusCode, res, message) => {
       Date.now() + cookieExpireDays * 24 * 60 * 60 * 1000 // Convert days to milliseconds
     ),
     httpOnly: true, // Set httpOnly to true for security
-    // secure: true, // Uncomment this if you're in a production environment using HTTPS
+    secure: true, // Uncomment this if you're in a production environment using HTTPS
   };
 
   res.status(statusCode).cookie("token", token, options).json({
