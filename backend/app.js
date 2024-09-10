@@ -7,6 +7,7 @@ import cors from "cors";
 import { errorMiddleware } from "./middlewares/error.js";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
+
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -14,7 +15,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: "*",
     method: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
