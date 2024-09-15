@@ -21,7 +21,6 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-
       console.log("user ka nam : ", name);
       const { data } = await axios.post(
         "https://job-portal-4ckp.onrender.com/api/v1/user/register",
@@ -42,16 +41,15 @@ const Register = () => {
       setPassword("");
       setPhone("");
       setRole("");
-      setIsAuthorized(true);
+      setIsAuthorized(true); // Set authorization status
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "An error occurred");
     }
   };
 
-  if(isAuthorized){
-    return <Navigate to={'/'}/>
+  if (isAuthorized) {
+    return <Navigate to="/" />;
   }
-
 
   return (
     <>
@@ -61,7 +59,7 @@ const Register = () => {
             <img src="/JobZeelogo.png" alt="logo" />
             <h3>Create a new account</h3>
           </div>
-          <form>
+          <form onSubmit={handleRegister}>
             <div className="inputTag">
               <label>Register As</label>
               <div>
@@ -121,14 +119,14 @@ const Register = () => {
                 <RiLock2Fill />
               </div>
             </div>
-            <button type="submit" onClick={handleRegister}>
+            <button type="submit">
               Register
             </button>
-            <Link to={"/login"}>Login Now</Link>
+            <Link to="/login">Login Now</Link>
           </form>
         </div>
         <div className="banner">
-          <img src="/register.png" alt="login" />
+          <img src="/register.png" alt="register" />
         </div>
       </section>
     </>
