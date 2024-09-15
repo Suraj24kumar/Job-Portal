@@ -55,10 +55,12 @@ export const login = catchAsyncErrors(async (req, res, next) => {
 
 export const logout = catchAsyncErrors(async (req, res, next) => {
   res
-    .status(201)
+    .status(200)
     .cookie("token", "", {
       httpOnly: true,
-      expires: new Date(Date.now()),
+      expires: new Date(Date.now()), // Expire the cookie immediately
+      sameSite: 'None', // Important for cross-site cookies
+      secure: process.env.NODE_ENV === 'production', // Secure cookie if in production
     })
     .json({
       success: true,

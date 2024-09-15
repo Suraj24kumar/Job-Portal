@@ -15,11 +15,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL , // Allows requests from any origin
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true, // Credentials are not supported
+    origin: process.env.FRONTEND_URL , 
+    credentials: true, 
   })
-);
+); 
 
 app.use(cookieParser());
 app.use(express.json());

@@ -22,7 +22,7 @@ const Navbar = () =>{
       setIsAuthorized(false);
       navigateTo("/login");
     } catch (error) {
-      toast.error(error.response.data.message), setIsAuthorized(true);
+     toast.error(error.response.data.message), setIsAuthorized(true);
     }
   };
 
