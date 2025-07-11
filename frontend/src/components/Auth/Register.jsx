@@ -23,7 +23,7 @@ const Register = () => {
     try {
       console.log("user ka nam : ", name);
       const { data } = await axios.post(
-        "https://job-portal-4ckp.onrender.com/api/v1/user/register",
+        "https://job-portal-1-gmd3.onrender.com/api/v1/user/register",
         { name, phone, email, role, password },
         {
           headers: {

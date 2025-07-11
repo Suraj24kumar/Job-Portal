@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://job-portal-4ckp.onrender.com/api/v1/user/login",
+        "https://job-portal-1-gmd3.onrender.com/api/v1/user/login",
         { email, password, role },
         {
           headers: {

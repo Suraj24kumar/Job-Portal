@@ -35,7 +35,7 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        "https://job-portal-4ckp.onrender.com/api/v1/application/post",
+        "https://job-portal-1-gmd3.onrender.com/api/v1/application/post",
         formData,
         {
           withCredentials: true,
